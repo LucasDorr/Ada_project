@@ -1,9 +1,8 @@
-
 -- Representation d'un code binaire, suite de bits 0 ou 1.
 -- D'autres operations peuvent etre ajoutees si necessaire, et 
 -- toutes ne vous seront pas forcement utiles...
 
-package code is
+package body code is
 
 	Code_Vide, Code_Trop_Court : exception;
 
@@ -12,25 +11,102 @@ package code is
 	ZERO : constant Bit := 0;
 	UN   : constant Bit := 1;
 
+	type Cellule is record
+		Val: Bit;
+		Suiv: Code;
+	end record;
+
 	type Code_Binaire is private;
 
+	-- Procedure de liberation d'une Cellule (accedee par un Code)
+	procedure Liberer is new Ada.Unchecked_Deallocation (Cellule, Code);
+
 	-- Cree un code initialement vide
-	function Cree_Code return Code_Binaire;
+	function Cree_Code return Code_Binaire is
+	begin
+		return null;
+	end Cree_Code		
 
 	-- Copie un code existant
-	function Cree_Code(C : in Code_Binaire) return Code_Binaire;
+	function Cree_Code(C : in Code_Binaire) return Code_Binaire is
+	Cc:Code_Binaire;
+	pC:Code_Binaire;
+	begin
+	Cc := Cree_Code;
+	pC := C;
+	if (pC /= null)then
+		while( pC.Suiv /= null )loop
+			Ajoute_Apres(pC.all.Val,Cc);
+			pC := pC.all.Suiv
+		end loop;
+		Ajoute_Apres(pc.all.Val,Cc);
+	else
+		raise CONSTRAINT_ERROR;
+	end if;
+
+	exception
+		when CONSTRAINT_ERROR => Put("Le Code à Copier est vide"); New_Line;
+
+	end Cree_Code;
+
+			
+		
 
 	-- Libere un code
-	procedure Libere_Code(C : in out Code_Binaire);
+	procedure Libere_Code(C : in out Code_Binaire) is
+	pC:Code_binaire;
+	begin
+	pC :=C;
+	if pC /= null then 
+		while pC.all.Suiv /= null loop 
+			C := C.all.Suiv;
+			Liberer(pC);
+			pC := C;
+		end loop;
+		Liberer(pC);
+	end if;
+	end Libere_Code;
 	
+
 	-- Retourne le nb de bits d'un code
-	function Longueur(C : in Code_Binaire) return Natural;
+	function Longueur(C : in Code_Binaire) return Natural is
+	N : Integer;
+	pC:Code_binaire;
+	begin
+	N:=0;
+	pC:=C;
+	if(pC /= null) then
+		N:=1;
+		while (pC.all.Suiv /= null) loop
+			pC := pC.all.Suiv;
+			N := N+1;
+		end loop;
+	end if;
+	return N;
+	end Longueur;
+
+
 
 	-- Affiche un code
-	procedure Affiche(C : in Code_Binaire);
+	procedure Affiche(C : in Code_Binaire) is
+	pC:Code_binaire;
+	begin
+	pC:=C;
+	if pC /= null then
+		Put(Integer'Image(pC.all.Val));
+		while pC.all.Suiv /= null loop
+			Put(Integer'Image(pC.all.Suiv.all.Val));
+			pC:=pC.all.Suiv;
+		end loop;
+	end if;
+	end Affiche;
+	
 
 	-- Ajoute le bit B en tete du code C
-	procedure Ajoute_Avant(B : in Bit; C : in out Code_Binaire);
+	procedure Ajoute_Avant(B : in Bit; C : in out Code_Binaire) is 
+	begin
+		C:= new Cellule'( B, C) ;
+	end Ajout_Avant;
 
 	-- Ajoute le bit B en queue du code C
 	procedure Ajoute_Apres(B : in Bit; C : in out Code_Binaire);
