@@ -1,0 +1,90 @@
+V "GNAT Lib v4.8"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_STREAMS
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK
+
+U exemple_io%b		exemple_io.adb		b6e5a266 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20121213103024 3ffc8e18
+D a-except.ads		20121213103024 10fcae55
+D a-finali.ads		20121213103024 52ecdc1b
+D a-inteio.ads		20121213103029 f64b89a4
+D a-ioexce.ads		20121213103029 8b9de6cd
+D a-stream.ads		20121213103024 2ca4ee37
+D a-ststio.ads		20121213103024 c3455b31
+D a-tags.ads		20121213103024 6c0509d0
+D a-textio.ads		20130106093217 386df5d4
+D a-tiinio.ads		20121213103024 aa04e5d6
+D a-unccon.ads		20121213103024 f9eb8f06
+D exemple_io.adb	20131104190350 bb868527
+D interfac.ads		20121213103024 129923ea
+D i-cstrea.ads		20130106093208 3286f6aa
+D system.ads		20121213103024 90249111
+D s-crtl.ads		20130106093200 1ea48bce
+D s-exctab.ads		20121213103029 66e51330
+D s-ficobl.ads		20121213103029 55a71d43
+D s-finmas.ads		20121213103024 b95bb341
+D s-finroo.ads		20121213103024 4ff27390
+D s-parame.ads		20121213103024 b6e20cc0
+D s-pooglo.ads		20121213103024 542f33d0
+D s-soflin.ads		20121213103024 24c8153c
+D s-stache.ads		20121213103024 596fc1b4
+D s-stalib.ads		20130106093355 f78bcf95
+D s-stoele.ads		20121213103024 facd7d98
+D s-stoele.adb		20121213103024 afc5dc80
+D s-stopoo.ads		20121213103024 7b8fbeee
+D s-stratt.ads		20121213103029 aedef97e
+D s-traent.ads		20121213103024 5221ee41
+D s-unstyp.ads		20121213103024 6ae15c76
+D s-wchcon.ads		20121213103024 bfeb2e3d
+X 1 ada.ads
+16K9*Ada 19e8 12|1r6 1r31 2r6 2r23 7r6 7r33 48r27 49r24 73r27 74r24
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[10|45] 12|1w10 1r35
+X 6 a-stream.ads
+36K13*Streams 69e16 12|7r10 7r37 48r31 49r28 73r31 74r28
+X 7 a-ststio.ads
+39K21*Stream_IO 223e26 12|7w18 7r45 48r39 49r36 73r39 74r36
+42P9*Stream_Access(6|39R9) 12|49r46 74r46
+44P9*File_Type(185R9) 12|48r49 73r49
+46n23*In_File{46E9} 12|52r31
+46n32*Out_File{46E9} 12|79r33
+67U14*Create 12|79s17
+73U14*Open 12|52s17
+79U14*Close 12|67s17 96s17
+89V13*End_Of_File{boolean} 12|62s27
+91V13*Stream{42P9} 12|53s25 80s25
+X 9 a-textio.ads
+49K13*Text_IO 471e16 12|2w10 2r27
+166U14*New_Line 12|88s17
+208U14*Put 12|64s36 85s17 86s17 87s17
+242U14*Put 12|55s17 58s17 64s25 82s17 83s26 84s34 85s27 86s27 87s27
+X 10 a-tiinio.ads
+65U14*Put 12|57s17[4|18] 59s17[4|18] 83s17[4|18] 84s17[4|18]
+X 12 exemple_io.adb
+40U11*exemple_IO 40b11 103l5 103t15
+42I14 Octet<integer> 43r13 59r29 77r21 91r17
+47U19 Lecture 47b19 47>27 68l13 68t20 102s9
+47s27 Nom_Fichier{string} 52r40
+48p17 Fichier{7|44P9} 52m22 52r22 53r32 62r39 67m23 67r23
+49p17 Flux{7|42P9} 53m17 57r35 59r41 63r46
+50e17 C{character} 63m25 64r40
+72U19 Ecriture 72b19 72>28 97l13 97t21 101s9
+72s28 Nom_Fichier{string} 79r43
+73p17 Fichier{7|44P9} 79m24 79r24 80r32 96m23 96r23
+74p17 Flux{7|42P9} 80m17 90r32 91r30 92r34 93r34 94r34
+75i17 I1{integer} 83r21 90r38
+76i17 I2{integer}
+77i17 O{42I14} 84r29 91r36
+
